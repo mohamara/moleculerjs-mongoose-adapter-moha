@@ -24,11 +24,14 @@ class MongooseDbAdapter {
 	 *
 	 * @memberof MongooseDbAdapter
 	 */
-	constructor(uri, opts) {
-		this.uri = uri,
-		this.opts = opts;
-		mongoose.Promise = Promise;
-	}
+	 constructor(uri, opts, model, schema) {
+        this.uri = uri
+        this.opts = opts
+        model ? (this.model = model) : ''
+        schema ? (this.schema = schema) : ''
+        mongoose.Promise = Promise
+    }
+
 
 	/**
 	 * Initialize adapter
